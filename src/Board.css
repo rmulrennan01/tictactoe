@@ -1,0 +1,14 @@
+.board{
+
+
+
+}
+
+.board__row{
+    clear: both;
+    content: "";
+    display: table;
+
+
+}
+
