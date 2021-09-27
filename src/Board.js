@@ -1,25 +1,46 @@
-import React from 'react';
+
 import Square from './Square';
 import './Board.css';
+import React, { useEffect, useState } from 'react'
 
 function Board() {
+    const [turn, setTurn] = useState(true); 
+
+    const handleTurn = () => {
+        (turn) ? setTurn(false) : setTurn(true)
+       //setTurn(false)
+  //      console.log(turn);
+
+    }
+
+    
+
+    
+
+   
         return(
             <div className="board"> 
                 <div className="board__row"> 
-                    <Square val={1}/>
-                    <Square val={2}/>
-                    <Square val={3}/>
+
+                    <Square 
+                        turn={turn} 
+                        //onChange={() => (xTurn) ? setxTurn(false) : setxTurn(true)} 
+                        handleTurn = {handleTurn} 
+                    />
+                    <Square 
+                        turn={turn} 
+                        //onChange={() => (xTurn) ? setxTurn(false) : setxTurn(true)} 
+                        handleTurn = {handleTurn} 
+                    />
+                                        <Square 
+                        turn={turn} 
+                        //onChange={() => (xTurn) ? setxTurn(false) : setxTurn(true)} 
+                        handleTurn = {handleTurn} 
+                    />
+  
                 </div> 
-                <div className="board__row"> 
-                    <Square val={4}/>
-                    <Square val={5}/>
-                    <Square val={6}/>
-                </div> 
-                <div className="board__row"> 
-                    <Square val={7}/>
-                    <Square val={8}/>
-                    <Square val={9}/>
-                </div>
+
+                
             </div> 
         )
     

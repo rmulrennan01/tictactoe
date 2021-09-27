@@ -4,18 +4,35 @@ import "./Square.css";
 
 function Square(props) {
 
-    const [count, setCount] = useState(props.val);
+    const [mark, setMark] = useState("");
+
+    const handleMark = () => {
+        props.handleTurn(); 
+        (props.turn) ? setMark("X") : setMark("O");
+        console.log(props.turn)
+
+    }
     
-    /*
+    
+
+   
     return (
-        <botton className="square__button" onClick={() => setCount(count+1)}>{count}</botton>
+        <botton className="square__button" 
+        //onClick={props.handleTurn}
+        //onChange = {handleMark}
+        onClick = {handleMark} 
+        
+      //  onClick = {setMark(props.turn)}//{props.handleTurn}
+        >{mark}
+        
+        </botton>
     )
-    */
-    return (
-        <botton className="square__button" onClick={() => setCount('X')}>{count}</botton>
+  
+ 
 
 
-    )
+
+
 }
 
 export default Square
