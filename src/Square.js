@@ -6,21 +6,16 @@ function Square(props) {
 
     const [mark, setMark] = useState("");
 
-    const handleMark = () => {
-        props.handleTurn(); 
-        (props.turn) ? setMark("X") : setMark("O");
-        console.log(props.turn)
-
+    const updateMark = () => {
+        props.handleTurn();
+        setMark(props.turn); 
     }
-    
-    
-
    
     return (
         <botton className="square__button" 
         //onClick={props.handleTurn}
         //onChange = {handleMark}
-        onClick = {handleMark} 
+        onClick = {updateMark} 
         
       //  onClick = {setMark(props.turn)}//{props.handleTurn}
         >{mark}
