@@ -21,23 +21,49 @@ function Board() {
         return(
             <div className="board"> 
                 <div className="board__row"> 
-
                     <Square 
                         turn={turn} 
-                        //onChange={() => (xTurn) ? setxTurn(false) : setxTurn(true)} 
                         handleTurn = {handleTurn} 
                     />
                     <Square 
                         turn={turn} 
-                        //onChange={() => (xTurn) ? setxTurn(false) : setxTurn(true)} 
                         handleTurn = {handleTurn} 
                     />
                                         <Square 
                         turn={turn} 
-                        //onChange={() => (xTurn) ? setxTurn(false) : setxTurn(true)} 
                         handleTurn = {handleTurn} 
                     />
   
+                </div> 
+                <div className="board__row"> 
+                    <Square 
+                        turn={turn} 
+                        handleTurn = {handleTurn} 
+                    />
+                    <Square 
+                        turn={turn} 
+                        handleTurn = {handleTurn} 
+                    />
+                                        <Square 
+                        turn={turn} 
+                        handleTurn = {handleTurn} 
+                    />
+
+                </div> 
+                <div className="board__row"> 
+                    <Square 
+                        turn={turn} 
+                        handleTurn = {handleTurn} 
+                    />
+                    <Square 
+                        turn={turn} 
+                        handleTurn = {handleTurn} 
+                    />
+                                        <Square 
+                        turn={turn} 
+                        handleTurn = {handleTurn} 
+                    />
+
                 </div> 
 
                 
