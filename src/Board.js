@@ -5,41 +5,69 @@ import React, { useEffect, useState } from 'react'
 
 function Board() {
     const [playerTurn, setplayerTurn] = useState(false); 
-    const [squareVals, setsquareVals] = useState(Array(9).fill(null)); 
+    const [squareVals, setSquareVals] = useState(Array(9).fill(null)); 
     const [mark, setMark] = useState("X"); 
+    const [gameOver, setGameOver] = useState(false); 
+    const [winner, setWinner] = useState(""); 
 
     //swaps turn on call
     const updateTurn = () => {
         (playerTurn) ? setplayerTurn(false) : setplayerTurn(true);
-        console.log("swaping turn bool from within board"); 
+        
+        
     }
 
-    /*
+    
     const checkWinner = () => {
-        for(let i = 0; i<9; i++){
-            if(i==1) {
-
-            }
-            
-        }
-
-
-    } */ 
+      const combos = [ 
+        [0,1,2],
+        [3,4,5],
+        [6,7,8],
+        [0,3,6],
+        [1,4,7],
+        [2,5,8],
+        [0,4,8],
+        [2,4,6] ]; 
+         
+        
+        for(let i= 0; i<combos.length; i++){
+            if(squareVals[combos[i][1]] != null){
+                 if(squareVals[combos[i][0]]===squareVals[combos[i][1]] &&
+                    squareVals[combos[i][1]]===squareVals[combos[i][2]]){
+                    setGameOver(true); 
+                    setWinner(squareVals[combos[i][0]]); 
+                    console.log("winner mo fo:", winner);
+                }        
+            }  
+        } 
+        
+       // console.log(squareVals[0], squareVals[1], squareVals[2]); 
+       //console.log(squareVals[0]===squareVals[1]); 
+       // console.log("Try this: ", squareVals[combos[0][1]]); 
+    }  
   
     //updates turn and sets value of the mark to pass to the square component
     const handleTurn = (i) => {
+        //console.log("Before: ", squareVals)
+        if(squareVals[i] == null){
         
         (playerTurn) ? setMark("X") : setMark("O");
-        console.log("swaping mark based on turn from within board");
         var tempSquareVals = Array(9); 
         tempSquareVals = squareVals.slice(); //copy the current board array
         tempSquareVals[i] = mark; //update the array for new mark made
-        setsquareVals(tempSquareVals); //replace the current board array
+        setSquareVals(tempSquareVals); //replace the current board array
         updateTurn();
+        checkWinner(); 
+       // console.log("After: ", squareVals); 
+        }
+        
+
         
     }
 
     const renderSquare = (i) => {
+
+
      return(
         <Square turn={squareVals[i]} handleTurn = {handleTurn} id = {i}/>
         
