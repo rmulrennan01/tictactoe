@@ -1,5 +1,6 @@
 .board{
-
+ margin-left:50px;
+ margin-top: 50px; 
 
 
 }
@@ -11,4 +12,20 @@
 
 
 }
+
+
+.board__result{
+    text-align: left;
+}
+
+.board__reset{
+    text-align: left;
+}
+
+
+.board__reset__button{
+    text-align: left; 
+
+}
+
 
